@@ -30,8 +30,8 @@ public class ProcessadorPedidos extends Thread {
 
                 boolean disponibilidade = sala.getDisponibilidade(linha, coluna);
 
+                Thread.sleep(pedido.getTempoParaConcluir());
                 if(disponibilidade && tipo == 2) {
-                    Thread.sleep(pedido.getTempoParaConcluir());
                     if(sala.reservarPoltrona(linha, coluna)) {
                         pedido.setStatus("RESERVADO");
                     }
